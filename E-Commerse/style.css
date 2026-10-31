@@ -1,0 +1,537 @@
+
+/* ==============================
+   GLOBAL STYLING
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #0d0d12;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ==============================
+   NAVIGATION BAR
+============================== */
+
+nav {
+    width: 100%;
+    min-height: 85px;
+    padding: 15px 5%;
+    background: #f67300;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #292938;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 150px;
+    height: 55px;
+    object-fit: contain;
+}
+
+/* SEARCH BAR */
+
+.search-bar {
+    width: 260px;
+    padding: 12px 15px;
+
+    background: #242432;
+    color: white;
+
+    border: 1px solid #44445a;
+    border-radius: 8px 0 0 8px;
+
+    outline: none;
+    font-size: 14px;
+}
+
+.search-bar:focus {
+    border-color: #a855f7;
+}
+
+.search-button {
+    padding: 12px 16px;
+    background: #9333ea;
+    color: white;
+
+    border: none;
+    border-radius: 0 8px 8px 0;
+
+    transition: 0.3s;
+}
+
+.search-button:hover {
+    background: #c084fc;
+}
+
+/* NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.navlink {
+    color: #dddded;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.navlink::after {
+    content: "";
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    left: 0;
+    bottom: -6px;
+
+    background: #c084fc;
+    transition: 0.3s;
+}
+
+.navlink:hover {
+    color: #c084fc;
+}
+
+.navlink:hover::after {
+    width: 100%;
+}
+
+
+/* ==============================
+   SLIDING HERO BANNER
+============================== */
+
+.hero-banner {
+    width: 100%;
+    height: 500px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #111;
+}
+
+/* First Banner */
+
+.hero-banner::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/logo&Hero-Banner/Welcome_Banner.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: slideBanner1 10s infinite;
+}
+
+/* Second Banner */
+
+.hero-banner::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/logo&Hero-Banner/Description_Banner.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: slideBanner2 10s infinite;
+}
+
+
+/* First Banner Animation */
+
+@keyframes slideBanner1 {
+
+    0%, 45% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50%, 95% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Second Banner Animation */
+
+@keyframes slideBanner2 {
+
+    0%, 45% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    50%, 95% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+/* ==============================
+   PRODUCTS SECTION
+============================== */
+
+.products-section {
+    width: 100%;
+    padding: 35px 5%;
+}
+
+.trending-section,
+.Tshirt-section,
+.Tpants-section,
+.Sneakers-section {
+    margin-bottom: 65px;
+    scroll-margin-top: 110px;
+}
+
+/* SECTION TITLES */
+
+.product-title {
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 30px;
+    padding-left: 15px;
+
+    border-left: 5px solid #a855f7;
+
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/* ==============================
+   PRODUCT GRID
+============================== */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+/* ==============================
+   PRODUCT CARDS
+============================== */
+
+.trending-card {
+    background: #191923;
+
+    border: 1px solid #292938;
+    border-radius: 14px;
+
+    padding: 15px;
+
+    overflow: hidden;
+    position: relative;
+
+    text-align: center;
+
+    transition: all 0.35s ease;
+}
+
+.trending-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #a855f7;
+
+    box-shadow:
+        0 12px 30px rgba(168, 85, 247, 0.2);
+}
+
+/* PRODUCT IMAGES */
+
+.product-img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 10px;
+
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.trending-card:hover .product-img {
+    transform: scale(1.04);
+}
+
+/* PRODUCT NAME */
+
+.trending-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+
+    margin: 18px 0 10px;
+
+    color: #f5f3ff;
+}
+
+/* PRODUCT PRICE */
+
+.trending-card p {
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #c084fc;
+
+    margin-bottom: 15px;
+}
+
+.trending-card del {
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #888899;
+    margin-left: 5px;
+}
+
+/* ==============================
+   ADD TO CART BUTTON
+============================== */
+
+.add-to-cart {
+    width: 100%;
+
+    padding: 12px 15px;
+
+    background: linear-gradient(
+        135deg,
+        #9333ea,
+        #6d28d9
+    );
+
+    color: #ffffff;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(
+        135deg,
+        #c084fc,
+        #9333ea
+    );
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 5px 15px rgba(147, 51, 234, 0.4);
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    width: 100%;
+
+    padding: 25px 15px;
+
+    background: #15151e;
+
+    text-align: center;
+
+    border-top: 1px solid #292938;
+
+    color: #aaaabc;
+    font-size: 14px;
+}
+
+/* ==============================
+   TABLET RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 1024px) {
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-banner {
+        min-height: 380px;
+    }
+
+}
+
+/* ==============================
+   MOBILE RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .logo-img {
+        width: 120px;
+    }
+
+    nav > div:nth-child(2) {
+        display: flex;
+        width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .navlink {
+        font-size: 12px;
+    }
+
+     .hero-banner {
+        height: 230px;
+    }
+
+    .products-section {
+        padding: 25px 15px;
+    }
+
+    .product-title {
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
+
+    .product-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .trending-card {
+        padding: 9px;
+        border-radius: 10px;
+    }
+
+    .product-img {
+        height: 175px;
+    }
+
+    .trending-card h3 {
+        font-size: 13px;
+        margin: 12px 0 8px;
+    }
+
+    .trending-card p {
+        font-size: 15px;
+    }
+
+    .trending-card del {
+        font-size: 11px;
+    }
+
+    .add-to-cart {
+        padding: 9px 5px;
+        font-size: 12px;
+    }
+
+}
+
+/* ==============================
+   SMALL MOBILE DEVICES
+============================== */
+
+@media (max-width: 360px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-img {
+        height: 260px;
+    }
+
+}
